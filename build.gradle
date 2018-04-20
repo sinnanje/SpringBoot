@@ -29,5 +29,9 @@ repositories {
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter-web','org.apache.tomcat.embed:tomcat-embed-jasper'
 	,'javax.servlet:jstl')
+	//compile 'org.hibernate:hibernate-core:3.6.0.Final'
+	//compile 'net.kemitix:sqlite-dialect:0.1.0'
+	//compile 'org.springframework:spring-orm:3.0.6.RELEASE'
+	//compile ('org.springframework.boot:spring-boot-starter-data-jpa')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
