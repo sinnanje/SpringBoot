@@ -16,33 +16,19 @@ import model.BookVO;
  */
 @Repository
 public class BookStorageWithoutDBServiceImpl implements BookStorageWithoutDBService{
-	HashMap<Integer,BookVO> bookMap = new HashMap<Integer,BookVO>();
 	
-	/*
-	 * Inserting books the first time to simulate a db
-	 * @see book.BookStorageWithoutDBService#insertBooks()
-	 */
-	public void insertBooks(){
-		
-		
-		bookMap.put(1234567, new BookVO(1234567,"Catch-22","Joseph Heller"));
-		
-		//ISBN = (int) Math.random();
-		bookMap.put(1234662, new BookVO(1234662,"Blandings Castle","P G Wodehouse"));
-		
-		//ISBN = (int) Math.random();
-		bookMap.put(23456789, new BookVO(23456789,"Outliers","Malcolm Gladwell"));
-	}
+	HashMap<Integer,BookVO> bookMap = new HashMap<Integer,BookVO>();
+
 	
 	/*
 	 * Saving a new book into the shelf. This will add a new book to HashMap 
 	 * @see book.BookStorageWithoutDBService#saveBook(model.BookVO)
 	 */
-	public String saveBook(BookVO bookVO) {
-		if(bookMap.containsKey(bookVO.getBookISBN())) return "Book exists on the shelf";
+	public BookVO saveBook(BookVO bookVO) {
+		if(bookMap.containsKey(bookVO.getBookISBN())) return null;
 		else {
 			bookMap.put(bookVO.getBookISBN(),bookVO);
-			return bookVO.getBookISBN() + " has been added to shelf";
+			return bookVO;
 		}
 	}
 	
@@ -53,7 +39,7 @@ public class BookStorageWithoutDBServiceImpl implements BookStorageWithoutDBServ
 	public String deleteBook(Integer ISBN){
 		if(!bookMap.containsKey(ISBN)) return "Book is not on our shelf";
 		bookMap.remove(ISBN);
-		return ISBN + " has been removed";
+		return ISBN.toString();
 	}
 	
 	/*

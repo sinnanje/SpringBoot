@@ -5,6 +5,7 @@ package model;
  * adding, updating, deleting books.
  */
 public class BookVO {
+	
 	private Integer bookISBN;
 	private String bookTitle;
 	private String bookAuthor;
@@ -37,6 +38,5 @@ public class BookVO {
 	public void setBookAuthor(String bookAuthor) {
 		this.bookAuthor = bookAuthor;
 	}
-	
 	
 }

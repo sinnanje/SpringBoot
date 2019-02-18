@@ -9,9 +9,8 @@ import model.BookVO;
  * needs to be implemented to provide business services for book system.
  */
 public interface BookStorageWithoutDBService {
-	void insertBooks();
 	
-	String saveBook(BookVO bookVO);
+	BookVO saveBook(BookVO bookVO);
 	
 	String deleteBook(Integer ISBN);
 	
